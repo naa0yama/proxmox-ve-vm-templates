@@ -20,7 +20,7 @@ if ! [ -f "${DISTRIB_CODENAME}-server-cloudimg-amd64_edited.img" ]; then
     mv "${DISTRIB_CODENAME}-server-cloudimg-amd64.img" "${DISTRIB_CODENAME}-server-cloudimg-amd64_edited.img"
 fi
 
-virt-copy-in -a "${DISTRIB_CODENAME}-server-cloudimg-amd64_edited.img" ../11_template.cfg /etc/cloud/cloud.cfg.d/
+virt-copy-in -a "${DISTRIB_CODENAME}-server-cloudimg-amd64_edited.img" ../../11_template.cfg /etc/cloud/cloud.cfg.d/
 virt-ls -a "${DISTRIB_CODENAME}-server-cloudimg-amd64_edited.img" /etc/cloud/cloud.cfg.d/
 
 qm create "${PVE_TMP_VMID}" --name "Ubuntu-20.04" --cores 2 --memory 2048 --net0 virtio,bridge=vmbr0,tag="${PVE_NET0_VLAN}"
